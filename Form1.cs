@@ -16,7 +16,6 @@ namespace MS17010Test
     public Form1()
     {
       InitializeComponent();
-      //Tester.TestIP("192.168.122.107");
     }
 
     private void button1_Click(object sender, EventArgs e) {
