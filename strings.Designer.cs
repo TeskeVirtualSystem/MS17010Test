@@ -79,6 +79,15 @@ namespace MS17010Test {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There was an execution error. This may mean it is not vulnerable, but the results are not reliable..
+        /// </summary>
+        public static string executionError {
+            get {
+                return ResourceManager.GetString("executionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
         public static string no {
@@ -91,7 +100,9 @@ namespace MS17010Test {
         ///   Looks up a localized string similar to That application is for checking if your computer is vulnerable to the flaw MS17-010 that the Ransonware WannaCry exploits.
         ///The first versions of that ransomware exploits that flaw to be able to spread over network using the protocol SMB.
         ///
-        ///Worth note that this application only verifies if your computer is vulnerable to this flaw, and does not guarante that new versions of the ransomware wouldn&apos;t exploit other flaws on the system..
+        ///Worth note that this application only verifies if your computer is vulnerable to this flaw, and does not guarante that new versions of the ransomware wouldn&apos;t exploit other flaws on the system.
+        ///
+        ///For better test execute this application in another machine and execute wit [rest of string was truncated]&quot;;.
         /// </summary>
         public static string notice {
             get {
@@ -130,7 +141,8 @@ namespace MS17010Test {
         ///   Looks up a localized string similar to OS: {0}
         ///Build: {1}
         ///Workgroup: {2}
-        ///Is Vulnerable: {3}.
+        ///Is Vulnerable: {3}
+        ///Message {4}.
         /// </summary>
         public static string resultString {
             get {

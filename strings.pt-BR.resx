@@ -123,6 +123,9 @@
   <data name="buttonTestOtherIP" xml:space="preserve">
     <value>Teste outro IP</value>
   </data>
+  <data name="executionError" xml:space="preserve">
+    <value>Houve um erro na execução do teste. Isso provavelmente significa que o seu computador não está vulnerável, porém o resultado não é tão confiável.</value>
+  </data>
   <data name="no" xml:space="preserve">
     <value>Não</value>
   </data>
@@ -131,7 +134,9 @@
 
 As primeiras versões do Ransonware usam uma falha no protocolo SMB do windows para poder se espalhar pela rede. 
 
-Vale notar que este aplicativo apenas verifica se o computador está vulnerável a essa falha, sendo que existe ainda a possibilidade de versões futuras do ransomware se aproveitarem de outras falhas.</value>
+Vale notar que este aplicativo apenas verifica se o computador está vulnerável a essa falha, sendo que existe ainda a possibilidade de versões futuras do ransomware se aproveitarem de outras falhas.
+
+Para melhor confiança no resultado, execute esse aplicativo em outra máquina e use o seu IP</value>
   </data>
   <data name="pleaseWait" xml:space="preserve">
     <value>Por favor aguarde...</value>
@@ -146,7 +151,8 @@ Vale notar que este aplicativo apenas verifica se o computador está vulnerável
     <value>OS: {0}
 Build: {1}
 Workgroup: {2}
-É vulnerável: {3}</value>
+É vulnerável: {3}
+Message: {4}</value>
   </data>
   <data name="unknown" xml:space="preserve">
     <value>Desconhecido</value>

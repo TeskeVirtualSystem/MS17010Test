@@ -4,18 +4,28 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MS17010Test
-{
-  public partial class Form1 : Form
-  {
-    public Form1()
-    {
+namespace MS17010Test {
+  public partial class Form1 : Form {
+    public Form1() {
       InitializeComponent();
+    }
+    private IPAddress LocalIPAddress() {
+      if (!System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable()) {
+        return null;
+      }
+
+      IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+
+      return host
+          .AddressList
+          .FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork);
     }
 
     private void button1_Click(object sender, EventArgs e) {
@@ -24,9 +34,10 @@ namespace MS17010Test
       progressBar1.Visible = true;
       resultLabel.Text = strings.pleaseWait;
       resultLabel.ForeColor = Color.AliceBlue;
+      testIpBox.Text = LocalIPAddress().ToString();
       ThreadPool.QueueUserWorkItem((t) => {
         try {
-          var res = Tester.TestIP("127.0.0.1");
+          var res = Tester.TestIP(LocalIPAddress().ToString());
           UpdateWithResults(res);
         } catch (Exception ex) {
           ResultError(ex);
@@ -39,9 +50,11 @@ namespace MS17010Test
         var self = new Action<TestResult>(UpdateWithResults);
         BeginInvoke(self, res);
       } else {
-        var msg = string.Format(strings.resultString, res.OSName, res.OSBuild, res.Workgroup, res.IsVulnerable ? strings.yes : strings.no);
+        var msg = string.Format(strings.resultString, res.OSName, res.OSBuild, res.Workgroup, res.IsVulnerable ? strings.yes : strings.no, res.error);
         resultLabel.Text = msg;
-        if (res.IsVulnerable) {
+        if (res.hadError) {
+          resultLabel.ForeColor = Color.PaleVioletRed;
+        } else if (res.IsVulnerable) {
           resultLabel.ForeColor = Color.Red;
         } else {
           resultLabel.ForeColor = Color.Green;
@@ -49,6 +62,9 @@ namespace MS17010Test
         button1.Enabled = true;
         button2.Enabled = true;
         progressBar1.Visible = false;
+        if (res.hadError) {
+          MessageBox.Show(strings.executionError);
+        }
       }
     }
 
@@ -78,7 +94,7 @@ namespace MS17010Test
         } catch (Exception ex) {
           ResultError(ex);
         }
-    });
+      });
     }
   }
 }

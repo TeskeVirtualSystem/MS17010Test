@@ -77,13 +77,15 @@ namespace MS17010Test {
         res.IsVulnerable = (smb.error_class == 0x05 && smb.reserved1 == 0x02 && smb.error_code == 0xC000);
         res.VulnerabilityOK = (smb.error_class == 0x08 && smb.reserved1 == 0x00 && smb.error_code == 0xC000) ||
           (smb.error_class == 0x22 && smb.reserved1 == 0x00 && smb.error_code == 0xC000);
-
+        res.error = $"{smb.error_class:X2} {smb.reserved1:X2} {smb.error_code:X4}";
         client.Close();
         return res;
       } catch (SocketException e) {
         if (e.SocketErrorCode == SocketError.ConnectionReset) {
           res.IsVulnerable = false;
           res.VulnerabilityOK = false;
+          res.hadError = true;
+          res.error = e.Message;
           return res;
         } else {
           throw e;

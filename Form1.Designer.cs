@@ -43,14 +43,14 @@
       // 
       this.label1.Location = new System.Drawing.Point(12, 13);
       this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(490, 102);
+      this.label1.Size = new System.Drawing.Size(490, 141);
       this.label1.TabIndex = 0;
       this.label1.Text = global::MS17010Test.strings.notice;
       this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // button1
       // 
-      this.button1.Location = new System.Drawing.Point(12, 118);
+      this.button1.Location = new System.Drawing.Point(12, 171);
       this.button1.Name = "button1";
       this.button1.Size = new System.Drawing.Size(193, 23);
       this.button1.TabIndex = 1;
@@ -60,7 +60,7 @@
       // 
       // button2
       // 
-      this.button2.Location = new System.Drawing.Point(353, 118);
+      this.button2.Location = new System.Drawing.Point(353, 171);
       this.button2.Name = "button2";
       this.button2.Size = new System.Drawing.Size(149, 23);
       this.button2.TabIndex = 2;
@@ -70,7 +70,7 @@
       // 
       // testIpBox
       // 
-      this.testIpBox.Location = new System.Drawing.Point(247, 120);
+      this.testIpBox.Location = new System.Drawing.Point(247, 173);
       this.testIpBox.Name = "testIpBox";
       this.testIpBox.Size = new System.Drawing.Size(100, 20);
       this.testIpBox.TabIndex = 3;
@@ -90,9 +90,9 @@
       // groupBox1
       // 
       this.groupBox1.Controls.Add(this.resultLabel);
-      this.groupBox1.Location = new System.Drawing.Point(12, 147);
+      this.groupBox1.Location = new System.Drawing.Point(12, 200);
       this.groupBox1.Name = "groupBox1";
-      this.groupBox1.Size = new System.Drawing.Size(490, 152);
+      this.groupBox1.Size = new System.Drawing.Size(490, 214);
       this.groupBox1.TabIndex = 5;
       this.groupBox1.TabStop = false;
       this.groupBox1.Text = "Result";
@@ -102,14 +102,15 @@
       this.resultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.resultLabel.Location = new System.Drawing.Point(6, 16);
       this.resultLabel.Name = "resultLabel";
-      this.resultLabel.Size = new System.Drawing.Size(478, 133);
+      this.resultLabel.Size = new System.Drawing.Size(478, 195);
       this.resultLabel.TabIndex = 0;
+      this.resultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(517, 311);
+      this.ClientSize = new System.Drawing.Size(517, 423);
       this.Controls.Add(this.groupBox1);
       this.Controls.Add(this.progressBar1);
       this.Controls.Add(this.testIpBox);

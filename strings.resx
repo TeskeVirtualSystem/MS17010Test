@@ -123,6 +123,9 @@
   <data name="buttonTestOtherIP" xml:space="preserve">
     <value>Test Other IP</value>
   </data>
+  <data name="executionError" xml:space="preserve">
+    <value>There was an execution error. This may mean it is not vulnerable, but the results are not reliable.</value>
+  </data>
   <data name="no" xml:space="preserve">
     <value>No</value>
   </data>
@@ -130,7 +133,9 @@
     <value>That application is for checking if your computer is vulnerable to the flaw MS17-010 that the Ransonware WannaCry exploits.
 The first versions of that ransomware exploits that flaw to be able to spread over network using the protocol SMB.
 
-Worth note that this application only verifies if your computer is vulnerable to this flaw, and does not guarante that new versions of the ransomware wouldn't exploit other flaws on the system.</value>
+Worth note that this application only verifies if your computer is vulnerable to this flaw, and does not guarante that new versions of the ransomware wouldn't exploit other flaws on the system.
+
+For better test execute this application in another machine and execute with your IP Address.</value>
   </data>
   <data name="pleaseWait" xml:space="preserve">
     <value>Please wait ...</value>
@@ -145,7 +150,8 @@ Worth note that this application only verifies if your computer is vulnerable to
     <value>OS: {0}
 Build: {1}
 Workgroup: {2}
-Is Vulnerable: {3}</value>
+Is Vulnerable: {3}
+Message {4}</value>
   </data>
   <data name="unknown" xml:space="preserve">
     <value>Unknown</value>
